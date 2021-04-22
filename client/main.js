@@ -16,9 +16,9 @@ function createWindow(width, height) {
         show: true,
         focus: false,
         transparent: true,
-        frame: false,
-        alwaysOnTop: true,
-        skipTaskbar: true,
+        frame: true,//false,
+        alwaysOnTop: false,//true,
+        skipTaskbar: false,//true,
         webPreferences: {
             //开启nodejs支持
             nodeIntegration: true,
