@@ -48,6 +48,20 @@ async def handle_project(request):
     return response.json(res)
 
 
+@app.route('/test', methods=['GET'])
+async def handle_project(request):
+    json=request.json
+    res={"x":'0.5',"y":'0.5'}
+    try:
+        res=project.run(json['view'])
+        res['x']=str(res['x'])
+        res['y']=str(res['y'])
+    except:
+        print("-")
+    # sanic的json dumps int有bug，需提前转为str
+    return response.json(res)
+
+
 # @app.route('/depth_estimation')
 # async def handle_depth_estimation(request):
 #     return await response.file_stream(camera.depth_estimation_file)
